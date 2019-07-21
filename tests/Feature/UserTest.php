@@ -57,11 +57,11 @@ class UserTest extends TestCase
     {
         $data = [
             'name'     => 'test',
-            'email'    => 'test@email.com',
+            'email'    => 'testtest@email.com',
             'password' => '123456789',
         ];
         factory(User::class)->create([
-            'email' => 'test@email.com',
+            'email' => 'testtest@email.com',
         ]);
         $response = $this->json('post', 'api/v1/register', $data);
         $response->assertJson([

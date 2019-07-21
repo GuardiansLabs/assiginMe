@@ -9,6 +9,6 @@ $factory->define(User::class, function (Faker $faker) {
     return [
         'name'     => $faker->name,
         'email'    => $faker->safeEmail,
-        'password' => bcrypt('secret'),
+        'password' => bcrypt('secret'), // secret
     ];
 });
