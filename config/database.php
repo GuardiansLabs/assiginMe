@@ -81,7 +81,6 @@ return [
             'database' => ':memory:',
             'prefix'   => '',
         ],
-
     ],
 
     /*

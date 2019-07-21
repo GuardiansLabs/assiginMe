@@ -2,12 +2,30 @@
 namespace Tests\Feature;
 
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\DB;
+use Laravel\Passport\ClientRepository;
 use Tests\TestCase;
 
 class UserTest extends TestCase
 {
     use RefreshDatabase;
+
+    public function setUp(): void
+    {
+        parent::setUp();
+        $clientRepository = new ClientRepository();
+        $client           = $clientRepository->createPersonalAccessClient(
+            null, 'App', 'http://localhost'
+        );
+
+        DB::table('oauth_personal_access_clients')->insert([
+            'client_id'  => $client->id,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+    }
 
     public function testUserCanRegister(): void
     {
@@ -56,12 +74,12 @@ class UserTest extends TestCase
     public function testUserCanLogin(): void
     {
         $user = factory(User::class)->create([
-            'email'    => 'test@email.com',
+            'email' => 'test@email.com',
         ]);
 
         $data = [
             'email'    => 'test@email.com',
-            'password' => 'secret'
+            'password' => 'secret',
         ];
         $response = $this->json('POST', 'api/v1/login', $data);
         $response->assertJson([
