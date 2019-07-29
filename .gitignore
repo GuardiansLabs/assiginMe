@@ -6,3 +6,4 @@ Homestead.json
 Homestead.yaml
 .env
 .php_cs.cache
+_ide_helper.php

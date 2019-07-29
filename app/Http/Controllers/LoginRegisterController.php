@@ -3,7 +3,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\loginRequest;
 use App\Http\Requests\RegisterRequest;
-use App\Http\Services\UserServices;
+use App\Services\UserServices;
 use App\User;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
@@ -22,7 +22,7 @@ class LoginRegisterController extends Controller
     {
         $data = $this->userServices->create($request->toArray());
 
-        return response(['data' => $data], 200);
+        return response($data, 200);
     }
 
     public function login(loginRequest $request)
@@ -32,9 +32,14 @@ class LoginRegisterController extends Controller
             $user          = Auth::user();
             $user['token'] = $user->createToken('App')->accessToken;
 
-            return $user;
+            return response(['data' => $user], 200);
         }
 
         return response('', Response::HTTP_UNAUTHORIZED);
+    }
+
+    public function getMyBoard()
+    {
+        return response($this->userServices->getMyBoard(), 200);
     }
 }

@@ -2,13 +2,13 @@
 
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder
+class BoardsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        $this->call(BoardsTableSeeder::class);
+        factory(App\Board::class, 10)->create();
     }
 }
