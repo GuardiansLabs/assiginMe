@@ -31,8 +31,8 @@ class LoginRegisterController extends Controller
             /** @var User $user */
             $user          = Auth::user();
             $user['token'] = $user->createToken('App')->accessToken;
-            return response(['data' => $user], 200);
 
+            return response(['data' => $user], 200);
         }
 
         return response('', Response::HTTP_UNAUTHORIZED);
@@ -40,6 +40,6 @@ class LoginRegisterController extends Controller
 
     public function getMyBoard()
     {
-        return response($this->userServices->getMyBoard(),200);
+        return response($this->userServices->getMyBoard(), 200);
     }
 }

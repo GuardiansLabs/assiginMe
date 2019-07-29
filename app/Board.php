@@ -2,12 +2,12 @@
 namespace App;
 
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Model;
 use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 
 /**
- * App\Task
+ * App\Task.
  *
  * @property int $id
  * @property int $name
@@ -17,7 +17,8 @@ use Illuminate\Database\Eloquent\Builder;
  * @property string $deadline
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * @property-read User $user
+ * @property User $user
+ *
  * @method static Builder|Board newModelQuery()
  * @method static Builder|Board newQuery()
  * @method static Builder|Board query()

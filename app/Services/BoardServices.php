@@ -4,10 +4,10 @@ namespace App\Services;
 use App\Board;
 use App\Transformers\BoardTransformer;
 use App\User;
+use Auth;
 use League\Fractal\Manager;
 use League\Fractal\Resource\Collection;
 use League\Fractal\Resource\Item;
-use Auth;
 
 class BoardServices
 {
@@ -31,8 +31,8 @@ class BoardServices
         $board = $user->board()->create($data);
 
         $data = new Item($board, new BoardTransformer());
-        return $this->transformerManger->createData($data)->toArray();
 
+        return $this->transformerManger->createData($data)->toArray();
     }
 
     public function getAll()

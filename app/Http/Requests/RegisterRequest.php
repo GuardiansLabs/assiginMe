@@ -4,8 +4,8 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 
 /**
- * Class RegisterRequest
- * @package App\Http\Requests
+ * Class RegisterRequest.
+ *
  * @property int $id
  */
 class RegisterRequest extends FormRequest

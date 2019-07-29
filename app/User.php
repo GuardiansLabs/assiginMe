@@ -30,7 +30,7 @@ use Laravel\Passport\Token;
  * @property Client[]|Collection $clients
  * @property DatabaseNotification[]|DatabaseNotificationCollection $notifications
  * @property Collection|Task[] $task
- * @property Collection|Board[] $board
+ * @property Board[]|Collection $board
  * @property Collection|Token[] $tokens
  *
  * @method static EloquentBuilder|User newModelQuery()
@@ -43,6 +43,7 @@ use Laravel\Passport\Token;
  * @method static EloquentBuilder|User wherePassword($value)
  * @method static EloquentBuilder|User whereRememberToken($value)
  * @method static EloquentBuilder|User whereUpdatedAt($value)
+ * @method static HasApiTokens|User createToken($value)
  * @mixin Eloquent
  */
 class User extends Authenticatable

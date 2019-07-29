@@ -4,11 +4,17 @@ namespace App\Services;
 use App\Transformers\BoardTransformer;
 use App\Transformers\UserTransformer;
 use App\User;
+use Auth;
+use Laravel\Passport\HasApiTokens;
 use League\Fractal\Manager;
 use League\Fractal\Resource\Collection;
 use League\Fractal\Resource\Item;
-use Auth;
 
+/**
+ * Class UserServices.
+ *
+ * @method static HasApiTokens|User createToken($App)
+ */
 class UserServices
 {
     /** @var User */

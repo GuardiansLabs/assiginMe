@@ -13,7 +13,13 @@ class UpdateTasksTable extends Migration
     {
         Schema::table('tasks', function (Blueprint $table): void {
             $table->renameColumn('assignedto', 'assigned_to');
+        });
+
+        Schema::table('tasks', function (Blueprint $table): void {
             $table->renameColumn('taskname', 'task_name');
+        });
+
+        Schema::table('tasks', function (Blueprint $table): void {
             $table->renameColumn('attachfile', 'attach_file');
         });
     }

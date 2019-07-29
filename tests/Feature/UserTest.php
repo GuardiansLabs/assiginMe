@@ -83,7 +83,9 @@ class UserTest extends TestCase
         ];
         $response = $this->json('POST', 'api/v1/login', $data);
         $response->assertJson([
-            'email' => $user->email,
+            'data' => [
+                'email' => $user->email,
+            ],
         ]);
     }
 }
